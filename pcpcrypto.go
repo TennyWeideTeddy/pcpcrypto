@@ -153,8 +153,9 @@ func (k pcpPrivateKey) Delete() error {
 // signature asking for the password / pin if the key needs one.
 //
 // We differentiate between :
-//	- PCP keys created with a password set in the Windows UI,
-//	- PCP keys created with a password set programmatically using NCRYPT_PIN_PORPERTY.
+//   - PCP keys created with a password set in the Windows UI,
+//   - PCP keys created with a password set programmatically using NCRYPT_PIN_PROPERTY.
+//
 // A password set via the UI prompt is transformed internally into its
 // SHA-1 digest, while a password set programmatically via NCRYPT_PIN_PROPERTY is
 // transformed internally into its SHA-256 digest.
