@@ -2,6 +2,268 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "PowerShell Launch Script",
+      "type": "PowerShell",
+      "request": "launch",
+      "script": "enter path or command to execute e.g.: ${workspaceFolder}/src/foo.ps1 or Invoke-Pester",
+      "cwd": "${cwd}"
+    },{
+      "name": "PowerShell Launch Current File",
+      "type": "PowerShell",
+      "request": "launch",
+      "script": "${file}",
+      "cwd": "${cwd}"
+    },
+    
+    {"name":"Python: Module","type":"python","request":"launch","module":"conda","justMyCode":true},{
+      "name": "Attach Camel Debugger",
+      "type": "apache.camel",
+      "request": "attach"
+    },
+    {
+      "name": "Attach Camel Debugger after starting the Camel Application using the preLaunchTask specified",
+      "type": "apache.camel",
+      "request": "attach",
+      "preLaunchTask": "Start Camel application"
+    },
+    {
+      "name": "Cake: Debug Script (.NET Tool)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet-cake",
+      "windows": {
+        "program": "dotnet-cake.exe"
+      },
+      "args": [
+        "${workspaceRoot}/build.cake",
+        "--debug",
+        "--verbosity=diagnostic"
+      ],
+      "cwd": "${workspaceRoot}",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "justMyCode": false
+    },
+    {
+      "name": "Debug",
+      "type": "powercpp",
+      "request": "launch",
+      "program": "${workspaceFolder}/<program>",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug",
+      "type": "powercpp",
+      "request": "launch"
+    },
+    {
+      "name": "(Windows) 起動",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "プログラム名を入力してください (例: ${workspaceFolder}/a.exe)",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "console": "externalTerminal"
+    },
+    {
+      "name": "(Windows) 接続",
+      "type": "cppvsdbg",
+      "request": "attach",
+    },
+    {
+      "name": "ROS: Attach",
+      "type": "ros",
+      "request": "attach"
+    },
+    {
+      "name": "ROS: Launch",
+      "type": "ros",
+      "request": "launch",
+      "target": "absolute path to launch file"
+    },
+    {
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}"
+      ],
+      "name": "Launch Extension",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "preLaunchTask": "npm",
+      "request": "launch",
+      "type": "extensionHost"
+    },
+    {
+      "name": "Launch & Profile built-in server",
+      "type": "php",
+      "request": "launch",
+      "noDebug": true,
+      "profile": true,
+      "runtimeArgs": [
+        "-S",
+        "localhost:8000",
+        "-t",
+        "."
+      ],
+      "port": 9003,
+      "serverReadyAction": {
+        "action": "openExternally"
+      }
+    },
+    {
+      "type": "robotframework-lsp",
+      "name": "Robot Framework: Launch template",
+      "request": "launch"
+    },
+    {
+      "type": "robocorp-code",
+      "name": "Robocorp Code: Launch task from robot.yaml",
+      "request": "launch",
+      "robot": "${file}",
+      "task": ""
+    },
+    {
+      "type": "perl",
+      "request": "launch",
+      "name": "Perl-Debug",
+      "program": "/",
+      "stopOnEntry": true,
+      "reloadModules": true
+    },
+    {
+      "name": "HHVM: Run Script",
+      "type": "hhvm",
+      "request": "launch",
+      "script": "${file}"
+    },
+    {
+      "name": "HHVM: Attach to Server",
+      "type": "hhvm",
+      "request": "attach",
+      "host": "localhost",
+      "port": 8999,
+      "remoteSiteRoot": "${workspaceFolder}",
+      "localWorkspaceRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "F5 Anything: Custom Command",
+      "type": "f5anything",
+      "request": "launch",
+      "command": "echo CHANGE THIS ECHO TO YOUR COMMAND",
+      "terminalName": "F5 Anything",
+      "terminalIndex": -1,
+      "showTerminal": true,
+      "vscCommand": ""
+    },
+    {
+      "type": "mix_task",
+      "request": "launch",
+      "name": "mix task",
+      "task": "task",
+      "taskArgs": [],
+      "projectDir": "${workspaceRoot}"
+    },
+    {
+      "name": "Attach to running Android on emulator",
+      "type": "cordova",
+      "request": "attach",
+      "platform": "android",
+      "target": "emulator",
+      "port": 9222,
+      "sourceMaps": true,
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Cloud Run: Run/Debug Locally",
+      "type": "cloudcode.cloudrun",
+      "request": "launch",
+      "build": {
+        "docker": {
+          "path": "Dockerfile"
+        }
+      },
+      "image": "${workspaceFolderBasename}",
+      "service": {
+        "name": "${workspaceFolderBasename}",
+        "containerPort": 8080,
+        "resources": {
+          "limits": {
+            "memory": "256Mi"
+          }
+        }
+      },
+      "target": {
+        "minikube": {}
+      },
+      "watch": true
+    },
+    {
+      "name": "Attach to Kubernetes Pod (.NET Core)",
+      "type": "cloudcode.kubernetes",
+      "request": "attach",
+      "language": "NETCore",
+      "podSelector": {
+        "app": "deployment-name"
+      },
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "Path to the Remote Directory Containing the Program"
+    },
+    {
+      "name": "Attach to Kubernetes Pod (Go)",
+      "type": "cloudcode.kubernetes",
+      "request": "attach",
+      "language": "Go",
+      "debugPort": 2345,
+      "podSelector": {
+        "app": "deployment-name"
+      },
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "Path to the Remote Directory Containing the Program"
+    },
+    {
+      "name": "Cake: Debug Script (.NET Tool)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet-cake",
+      "windows": {
+        "program": "dotnet-cake.exe"
+      },
+      "args": [
+        "${workspaceRoot}/build.cake",
+        "--debug",
+        "--verbosity=diagnostic"
+      ],
+      "cwd": "${workspaceRoot}",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "justMyCode": false
+    },
+    
+    {
+      "name": "Launch file",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${file}"
+    },
+    {
+      "name": "Attach to Process",
+      "type": "go",
+      "request": "attach",
+      "mode": "local",
+      "processId": 0
+    },
+    {
+      "name": "Launch file",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${file}"
+    },
+    {
       "name": "C/C++ Runner: Launch Session",
       "type": "cppdbg",
       "request": "launch",
@@ -28,7 +290,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/Users/Administrator/Documents/GitHub/pcpcrypto",
-      "program": "/c:/Users/Administrator/Documents/GitHub/pcpcrypto",
+      "program": "c:/Users/Administrator/Documents/GitHub/pcpcrypto/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

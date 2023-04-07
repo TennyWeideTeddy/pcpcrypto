@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "leo-labs.dotnet",
+        "kishoreithadi.dotnet-core-essentials",
+        "matijarmk.dotnet-core-commands",
+        "mfery.dotnetexplorer",
+        "tabnine.tabnine-vscode",
+        "golang.go-nightly",
+        "funkyremi.vscode-google-translate",
+        "powertech.powercpp",
+        "robocorp.robocorp-code",
+        "robocorp.robotframework-lsp",
+        "petersteiner.pip-installer",
+        "donjayamanne.python-environment-manager"
+    ]
+}
